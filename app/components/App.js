@@ -1,8 +1,21 @@
 import React from 'react';
+import List from './sms-list';
 
+const messages = [{
+  id: 101,
+  sender: 101,
+  date: '10/10/2017',
+  message: 'hello',
+}];
 const App = () => {
   return (
-    <h2 id="heading">Hello ReactJS</h2>
+    <div>
+      <h2 id="heading">Messaging</h2>
+      <div>
+        <input type="search" />
+      </div>
+      <List messages={messages} />
+    </div>
   );
 };
 
