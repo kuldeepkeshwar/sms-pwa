@@ -8,7 +8,7 @@ const List = (props) => {
               return (
                 <div key={msg.id}>
                   <div>{msg.sender}</div>
-                  <div>{msg.messsage}</div>
+                  <div>{msg.message}</div>
                 </div>
               );
             })
