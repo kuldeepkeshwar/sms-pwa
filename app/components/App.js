@@ -6,6 +6,12 @@ const messages = [{
   sender: 101,
   date: '10/10/2017',
   message: 'hello',
+},
+{
+  id: 102,
+  sender: 101,
+  date: '11/10/2017',
+  message: 'world',
 }];
 const App = () => {
   return (
