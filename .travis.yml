@@ -8,16 +8,16 @@ branches:
       - master
       - /^greenkeeper/.*$/
 notifications:
-  email: false
+  email: true
 node_js:
   - 6.1
   - 6
   - 5.6.0
   - 4.3.0
 before_install:
-  - npm i -g npm@^3.8.2
+  - npm i -g preact-cli
 before_script:
   - npm prune
 script:
   - npm run test
-install: npm install
+install: npm run build
