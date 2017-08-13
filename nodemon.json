@@ -1,0 +1,8 @@
+{
+    "verbose": true,
+    "legacyWatch": true,
+    "watch": [
+      "dist/server.js"
+    ],
+    "ignore": ["**/*.js*","**/*.md","**/.*","**/server/*","**/src/*","**/node_modules/*", "**/.git/*"]
+  }
