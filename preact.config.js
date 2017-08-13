@@ -8,10 +8,15 @@
  **/
 export default function (config, env, helpers) {
     /** you can change config here **/
-    const plugins = config.plugins.filter((plugin)=>{
-        return plugin.constructor.name !== 'SWPrecacheWebpackPlugin';
-    })
-        
-    config.plugins=plugins;
-    return config;
+  const plugins = config.plugins.filter((plugin) => {
+    return plugin.constructor.name !== 'SWPrecacheWebpackPlugin';
+  });
+  config.devServer.proxy = [
+    {
+      path: '/api/**',
+      target: 'http://localhost:3000',
+    },
+  ];
+  config.plugins = plugins;
+  return config;
 }
