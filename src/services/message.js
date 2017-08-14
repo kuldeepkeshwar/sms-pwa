@@ -8,6 +8,6 @@ export const getList = (filter) => {
 };
 export const getMessageThread = (senderId) => {
   return axios.get('/api/v1/messages/thread', {
-    params: senderId,
+    params: {senderId},
   }).then(res => res.data);
 };
