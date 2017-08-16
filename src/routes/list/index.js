@@ -23,7 +23,13 @@ const Messages = props => (
   </div>
 );
 
+<<<<<<< HEAD
 
+=======
+const styles={
+  height:'400px',overflow:'scroll'
+}
+>>>>>>> b3488f30a4b3f552414699041f00b5733a0913a5
 class Scrollable extends Component {
   constructor() {
     super();

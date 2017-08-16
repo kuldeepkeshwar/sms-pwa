@@ -3,7 +3,6 @@ import express from 'express';
 
 const router = express.Router();
 
-
 const messageThread = {
   total: 1000,
   sender: {
