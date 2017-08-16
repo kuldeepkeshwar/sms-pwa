@@ -1,3 +1,4 @@
+import path from 'path';
 /**
  * Function that mutates original webpack config.
  * Supports asynchronous changes when promise is returned.
@@ -11,6 +12,9 @@ export default function (config, env, helpers) {
   const plugins = config.plugins.filter((plugin) => {
     return plugin.constructor.name !== 'SWPrecacheWebpackPlugin';
   });
+  let { plugin: htmlWebpackPlugin } = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0];
+  htmlWebpackPlugin.options.template = `!!ejs-loader!${path.resolve(__dirname, 'src/index.html')}`;
+  
   config.devServer.proxy = [
     {
       path: '/api/**',
