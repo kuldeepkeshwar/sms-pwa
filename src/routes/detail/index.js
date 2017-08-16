@@ -31,7 +31,7 @@ export default class Detail extends Component {
 		}
 	}
 	componentDidMount(){
-		getMessageThread().then((state)=>this.setState(state));
+		getMessageThread(this.props.matches.id).then((state)=>this.setState(state));
 	}
 	render() {
 		return (
