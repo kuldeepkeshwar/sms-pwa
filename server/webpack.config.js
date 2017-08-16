@@ -3,6 +3,7 @@ const path = require('path');
 const dist = './../build/';
 
 module.exports = {
+  // devtool:'source-map',
   target: 'node',
   entry: './server/app.js',
   output: {

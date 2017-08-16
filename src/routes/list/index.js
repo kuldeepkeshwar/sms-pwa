@@ -23,9 +23,7 @@ const Messages = props => (
   </div>
 );
 
-const styles={
-  height:'400px',overflow:'scroll'
-}
+
 class Scrollable extends Component {
   constructor() {
     super();
@@ -64,6 +62,9 @@ class Scrollable extends Component {
     }
   }
   render() {
+    const styles={
+      height:`${this.props.distance}px`,overflow:'scroll'
+    }
     return (
       <div style={styles} onScroll={this.handleScroll}>
         {this.props.children}

@@ -4,5 +4,5 @@
     "watch": [
       "dist/server.js"
     ],
-    "ignore": ["**/*.js*","**/*.md","**/.*","**/src/*","**/node_modules/*", "**/.git/*"]
+    "ignore": ["**/LICENSE","**/*.config.js","**/*.json","**/*.log*","**/*.md","**/.*","**/server/*","**/src/*","**/node_modules/*", "**/.git/*"]
   }

@@ -3,21 +3,7 @@ import express from 'express';
 
 const router = express.Router();
 
-const appState = {
-  total: 1000,
-  messages: [],
-};
-for(let i=1;i<=50;i++){
-  appState.messages.push({
-    id: 100+i,
-    sender: {
-      number: 9004925450,
-      name: 'Mr. X'+i,
-    },
-    time: '10/10/2017',
-    detail: 'Hi, Mr. X'+i,
-  })
-}
+
 const messageThread = {
   total: 1000,
   sender: {
@@ -34,6 +20,24 @@ for(let i=1;i<=25;i++){
   })
 }
 router.get('/messages/', (req, res) => {
+  let {limit,offset} = req.query;
+  const appState = {
+    total: 1000,
+    messages: [],
+  };
+  offset=offset-0;
+
+  for(let i=1;i<=limit;i++){
+    appState.messages.push({
+      id: 100+(i+offset),
+      sender: {
+        number: 9004925450,
+        name: 'Mr. X'+(i+offset),
+      },
+      time: '10/10/2017',
+      detail: 'Hi, Mr. X'+(i+offset),
+    })
+  }
   res.send(appState);
 });
 router.get('/messages/thread/', (req, res) => {
