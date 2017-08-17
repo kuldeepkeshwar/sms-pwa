@@ -6,19 +6,21 @@ import { getList } from './../../services/message';
 console.log(style);
 
 const SearchBox = (props) => (<div className={style['search--bar--container']}>
-	<input className="search--bar" type="text" placeholder="1363 messages" />
+	<input className={style['search--bar']} type="text" placeholder="1363 messages" />
 </div>)
 
-const Messages = (props) => (<div className="item--overflow">
+const Messages = (props) => (<div className={style['item--overflow']}>
 	{props.messages.map((msg)=>{
 		return (
-			<Link href={'/detail/'+msg.id} className="item--listing--link">
-				<div className="item--listing--container">
-					<div className="avatar--container"><img src="../assets/icons/android-chrome-192x192.png"/></div>
-					<div className="item--listing">
-						<div className="item--name--number">{msg.sender.name || msg.sender.number }</div>
-						<div className="item--detail">{msg.detail}</div>
-						<div className="item--date--time">{msg.time}</div>
+			<Link href={'/detail/'+msg.id} className={style['item--listing--link']}>
+				<div className={style['item--listing--container']}>
+					<div className={style['avatar--container']}>
+            <img src="../assets/icons/android-chrome-192x192.png"/>
+          </div>
+					<div className={style['item--listing']}>
+						<div className={style['item--name--number']}>{msg.sender.name || msg.sender.number }</div>
+						<div className={style['item--detail']}>{msg.detail}</div>
+						<div className={style['item--date--time']}>{msg.time}</div>
 					</div>
 				</div>
 			</Link>
@@ -110,9 +112,9 @@ export default class List extends Component {
   }
   render() {
     return (
-      <div class="main--screen">
-				<h5 className="main--title">Messaging</h5>
-				<div className="main--inner--section">
+      <div class={style['main--screen']}>
+				<h5 className={style['main--title']}>Messaging</h5>
+				<div className={style['main--inner--section']}>
           <SearchBox />
           <Scrollable onDown={this.onScrollDown} distance="375">
             <Messages messages={this.state.messages} />
