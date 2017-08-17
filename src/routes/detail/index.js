@@ -1,22 +1,31 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
-import './style';
+import style from './style';
 import { getMessageThread } from './../../services/message';
 
-const Sender = (props) =>(<div className="massage--header">
-	<Link href="/" className="back--link"> <img src="../assets/icons/left-arrow.svg" alt="" /> </Link>
-	<div className="user--detail">
-		<div>{props.sender.name}</div>
-		<div>{props.sender.number}</div>
+const Sender = (props) =>(<div className={style['message--header']}>
+	<Link href="/" className={style['back--link']}> <img src="../assets/icons/left-arrow.svg" alt="" /> </Link>
+	<div className={style['user--detail']}>
+		<div className={style['user--name']}>{props.sender.name}</div>
+		<div className={style['user--number']}>{props.sender.number}</div>
 	</div>
 </div>)
 const Messages = (props) =>(
-	<div>
+	<div className={style['message--text']}>
 		{props.messages.map(msg=>{
 			return (
 				<div>
-					<div>{msg.time}</div>
-					<div>{msg.detail}</div>
+					<div className={style['message--bubble--container']}>
+						<div className={style['message--date']}>{msg.time}</div>
+						<div className={style['message--bubble']}><div className={style['message--bubble--inner']}>{msg.detail}</div></div>
+						<div className={style['message--bubble']}><div className={style['message--bubble--inner']}>{msg.detail}</div></div>
+					</div>
+
+					<div className={style['colored--message--bubble--container']}>
+						<div className={style['message--date']}>{msg.time}</div>
+						<div className={style['message--bubble']}><div className={style['message--bubble--inner']}>{msg.detail}</div></div>
+						<div className={style['message--bubble']}><div className={style['message--bubble--inner']}>{msg.detail}</div></div>
+					</div>
 				</div>
 			)
 		})}
@@ -35,7 +44,7 @@ export default class Detail extends Component {
 	}
 	render() {
 		return (
-			<div className="massage--container">
+			<div className={style['message--container']}>
 				<Sender sender={this.state.sender}/>
 				<Messages messages={this.state.messages} />
 			</div>
