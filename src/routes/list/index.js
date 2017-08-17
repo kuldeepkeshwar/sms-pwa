@@ -3,26 +3,28 @@ import { Link } from 'preact-router/match';
 import style from './style';
 import { getList } from './../../services/message';
 
-const SearchBox = props => (<div>
-  <input type="text" placeholder="1363 messages" />
-</div>);
-const Messages = props => (
-  <div>
-    {props.messages.map((msg) => {
-      return (
-        <Link href={`/detail/${msg.id}`}>
-          <div><img src="/images/user" /></div>
-          <div>
-            <div>{msg.sender.name || msg.sender.number }</div>
-            <div>{msg.detail}</div>
-          </div>
-          <div>{msg.time}</div>
-        </Link>
-      );
-    })}
-  </div>
-);
+console.log(style);
 
+const SearchBox = (props) => (<div className={style['search--bar--container']}>
+	<input className="search--bar" type="text" placeholder="1363 messages" />
+</div>)
+
+const Messages = (props) => (<div className="item--overflow">
+	{props.messages.map((msg)=>{
+		return (
+			<Link href={'/detail/'+msg.id} className="item--listing--link">
+				<div className="item--listing--container">
+					<div className="avatar--container"><img src="../assets/icons/android-chrome-192x192.png"/></div>
+					<div className="item--listing">
+						<div className="item--name--number">{msg.sender.name || msg.sender.number }</div>
+						<div className="item--detail">{msg.detail}</div>
+						<div className="item--date--time">{msg.time}</div>
+					</div>
+				</div>
+			</Link>
+		)
+	})}
+</div>)
 
 class Scrollable extends Component {
   constructor() {
@@ -108,12 +110,14 @@ export default class List extends Component {
   }
   render() {
     return (
-      <div>
-        <h2>Messaging</h2>
-        <SearchBox />
-        <Scrollable onDown={this.onScrollDown} distance="375">
-          <Messages messages={this.state.messages} />
-        </Scrollable>
+      <div class="main--screen">
+				<h5 className="main--title">Messaging</h5>
+				<div className="main--inner--section">
+          <SearchBox />
+          <Scrollable onDown={this.onScrollDown} distance="375">
+            <Messages messages={this.state.messages} />
+          </Scrollable>
+        </div>
       </div>
     );
   }

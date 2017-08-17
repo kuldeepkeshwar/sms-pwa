@@ -1,11 +1,11 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router/match';
-import style from './style';
+import './style';
 import { getMessageThread } from './../../services/message';
 
-const Sender = (props) =>(<div>
-	<div><Link href="/"> Back </Link></div>
-	<div>
+const Sender = (props) =>(<div className="massage--header">
+	<Link href="/" className="back--link"> <img src="../assets/icons/left-arrow.svg" alt="" /> </Link>
+	<div className="user--detail">
 		<div>{props.sender.name}</div>
 		<div>{props.sender.number}</div>
 	</div>
@@ -35,7 +35,7 @@ export default class Detail extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className="massage--container">
 				<Sender sender={this.state.sender}/>
 				<Messages messages={this.state.messages} />
 			</div>

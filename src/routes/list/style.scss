@@ -1,0 +1,110 @@
+.main--screen {
+    background: #4b6cb7;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.main--inner--section {
+	background: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	animation: animate--bottom--to--top 0.7s;
+	position: absolute;
+	margin: 50px 10px 0;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.main--title {
+	letter-spacing: 0.4px;
+	text-align: center;
+	font-size: 16px;
+	padding: 15px 0;
+	color: #fff;
+	height: 50px;
+}
+
+.search--bar--container {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+	background: #f7f7f7;
+	padding: 5px;
+	border-bottom: solid 1px #e9e9e9;
+	height: 48px;
+	position: relative;
+	z-index: 1;
+}
+
+.search--bar {
+	height: 37px;
+	margin: 0;
+	padding: 8px 15px;
+	font-size: 12px;
+	border: solid 1px #e9e9e9;
+	width: 100%;
+	outline: none;
+	-webkit-appearance: none;
+	border-radius: 5px;
+}
+
+.item--overflow {
+	-webkit-overflow-scrolling: touch;
+	position: absolute;
+	padding-top: 48px;
+	overflow: auto;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+
+.item--listing--link {
+	display: block;
+	user-select: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.item--listing--container {
+	position: relative;
+	margin: 0 15px;
+	padding: 12px 0;
+	border-bottom: solid 1px #f7f7f7;
+	
+	.avatar--container {
+		position: absolute;
+	}
+}
+
+.item--listing {
+	position: relative;
+	padding-left: 54px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+
+	.item--detail {
+		margin-top: 3px;
+		color: #737373;
+		font-size: 11px;
+		width: calc(100% - 30px);
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}
+
+.item--date--time {
+	position: absolute;
+    right: 12px;
+    top: 4px;
+    font-size: 8px;
+    color: #999999;
+}
