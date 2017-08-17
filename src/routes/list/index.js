@@ -26,13 +26,14 @@ const Messages = (props) => (<div className={style['item--overflow']}>
 		)
 	})}
 </div>)
-
+const distance=document.body.offsetHeight-50-48;
+const limit=Math.floor(distance/63)*3;
 export default class List extends Component {
   constructor() {
     super();
     this.state = {
       filter:{
-        limit:15,
+        limit:limit,
         offset:0,  
       },
       total:0,
@@ -43,7 +44,7 @@ export default class List extends Component {
   componentDidMount() {
     getList(this.state.filter).then(state => {
       state.filter={
-        limit:15,
+        limit:limit,
         offset:this.state.filter.offset+state.messages.length
       }
       this.setState(state);
@@ -52,7 +53,7 @@ export default class List extends Component {
   onScrollDown(top,donefn){
     getList(this.state.filter).then(state => {
       const filter={
-        limit:15,
+        limit:limit,
         offset:this.state.filter.offset+state.messages.length
       }
       let messages = this.state.messages;
@@ -67,7 +68,7 @@ export default class List extends Component {
 				<h5 className={style['main--title']}>Messaging</h5>
 				<div className={style['main--inner--section']}>
           <SearchBox />
-          <Scrollable onDown={this.onScrollDown} distance="375">
+          <Scrollable onDown={this.onScrollDown} distance={distance}>
             <Messages messages={this.state.messages} />
           </Scrollable>
         </div>
