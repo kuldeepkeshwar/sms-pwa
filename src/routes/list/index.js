@@ -14,7 +14,7 @@ const Messages = (props) => (<div className={style['item--overflow']}>
 			<Link href={'/detail/'+msg.id} className={style['item--listing--link']}>
 				<div className={style['item--listing--container']}>
 					<div className={style['avatar--container']}>
-            <img src="../assets/icons/android-chrome-192x192.png"/>
+            <img src="../assets/icons/default-icon.png"/>
           </div>
 					<div className={style['item--listing']}>
 						<div className={style['item--name--number']}>{msg.sender.name || msg.sender.number }</div>
@@ -65,7 +65,9 @@ export default class List extends Component {
   render() {
     return (
       <div class={style['main--screen']}>
-				<h5 className={style['main--title']}>Messaging</h5>
+				<div className={style['main--head']}>
+          <div className={style['main--title']}><img src="../assets/icons/sms-logo.svg" alt=""/> Messaging</div>
+        </div>
 				<div className={style['main--inner--section']}>
           <SearchBox />
           <Scrollable onDown={this.onScrollDown} distance={distance}>

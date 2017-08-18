@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import style from './style';
+
 export default class Scrollable extends Component {
     constructor() {
       super();
@@ -42,7 +44,7 @@ export default class Scrollable extends Component {
         height:`${this.props.distance}px`,overflow:'auto'
       }
       return (
-        <div style={styles} onScroll={this.handleScroll}>
+        <div className={style['item--overflow']} style={styles} onScroll={this.handleScroll}>
           {this.props.children}
         </div>
       );
