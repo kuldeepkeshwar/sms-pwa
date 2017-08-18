@@ -7,6 +7,11 @@
 	position: relative;
 }
 
+.main--head {
+	height: 50px;
+	position: relative;
+}
+
 .main--inner--section {
 	background: #fff;
 	border-top-left-radius: 5px;
@@ -23,11 +28,18 @@
 
 .main--title {
 	letter-spacing: 0.4px;
-	text-align: center;
-	font-size: 16px;
-	padding: 15px 0;
+	font-size: 14px;
 	color: #fff;
-	height: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	img {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 6px;
+	}
 }
 
 .search--bar--container {
@@ -51,17 +63,6 @@
 	outline: none;
 	-webkit-appearance: none;
 	border-radius: 5px;
-}
-
-.item--overflow {
-	-webkit-overflow-scrolling: touch;
-	position: absolute;
-	padding-top: 48px;
-	overflow: auto;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	top: 0;
 }
 
 .item--listing--link {

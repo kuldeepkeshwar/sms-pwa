@@ -51,13 +51,9 @@
 
 .message--text{
     animation: animate--right--to--left 0.7s;
-    -webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
     overflow: auto;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	top: 60px;
 	padding: 10px 15px;
 }
 

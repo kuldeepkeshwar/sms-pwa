@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import style from './style';
+
 export default class Scrollable extends Component {
     constructor() {
       super();
@@ -28,6 +30,7 @@ export default class Scrollable extends Component {
           direction:'down',
           lastScrollPos:event.currentTarget.scrollTop
         });
+        console.log(this.state.downCallFlag,this.props.distance,this.state.page,event.currentTarget.scrollTop);
         if(this.state.downCallFlag && this.props.distance*this.state.page<event.currentTarget.scrollTop){
           this.setState({
             downCallFlag:false
@@ -38,10 +41,10 @@ export default class Scrollable extends Component {
     }
     render() {
       const styles={
-        height:`${this.props.distance}px`,overflow:'scroll'
+        height:`${this.props.distance}px`,overflow:'auto'
       }
       return (
-        <div style={styles} onScroll={this.handleScroll}>
+        <div className={style['item--overflow']} style={styles} onScroll={this.handleScroll}>
           {this.props.children}
         </div>
       );

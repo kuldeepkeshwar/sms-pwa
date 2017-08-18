@@ -14,7 +14,7 @@ const Messages = (props) => (<div className={style['item--overflow']}>
 			<Link href={'/detail/'+msg.id} className={style['item--listing--link']}>
 				<div className={style['item--listing--container']}>
 					<div className={style['avatar--container']}>
-            <img src="../assets/icons/android-chrome-192x192.png"/>
+            <img src="../assets/icons/default-icon.png"/>
           </div>
 					<div className={style['item--listing']}>
 						<div className={style['item--name--number']}>{msg.sender.name || msg.sender.number }</div>
@@ -26,13 +26,14 @@ const Messages = (props) => (<div className={style['item--overflow']}>
 		)
 	})}
 </div>)
-
+const distance=document.body.offsetHeight-50-48;
+const limit=Math.floor(distance/63)*3;
 export default class List extends Component {
   constructor() {
     super();
     this.state = {
       filter:{
-        limit:15,
+        limit:limit,
         offset:0,  
       },
       total:0,
@@ -43,7 +44,7 @@ export default class List extends Component {
   componentDidMount() {
     getList(this.state.filter).then(state => {
       state.filter={
-        limit:15,
+        limit:limit,
         offset:this.state.filter.offset+state.messages.length
       }
       this.setState(state);
@@ -52,7 +53,7 @@ export default class List extends Component {
   onScrollDown(top,donefn){
     getList(this.state.filter).then(state => {
       const filter={
-        limit:15,
+        limit:limit,
         offset:this.state.filter.offset+state.messages.length
       }
       let messages = this.state.messages;
@@ -64,10 +65,12 @@ export default class List extends Component {
   render() {
     return (
       <div class={style['main--screen']}>
-				<h5 className={style['main--title']}>Messaging</h5>
+				<div className={style['main--head']}>
+          <div className={style['main--title']}><img src="../assets/icons/sms-logo.svg" alt=""/> Messaging</div>
+        </div>
 				<div className={style['main--inner--section']}>
           <SearchBox />
-          <Scrollable onDown={this.onScrollDown} distance="375">
+          <Scrollable onDown={this.onScrollDown} distance={distance}>
             <Messages messages={this.state.messages} />
           </Scrollable>
         </div>
