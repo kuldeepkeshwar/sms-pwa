@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" viewBox="0 0 163 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#3F5C9D" offset="0%"></stop>
+            <stop stop-color="#1B2C4F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-386.000000, -243.000000)">
+            <g id="Group" transform="translate(388.000000, 245.000000)">
+                <path d="M74.8479122,114.114821 C33.1064995,113.217176 0,99.8450162 0,57.5 C0,13.5933624 35.5933624,0.33984375 79.5,0.33984375 C123.406638,0.33984375 159,13.5933624 159,57.5 C159,91.545651 137.599105,106.8625 107.515939,112.025235 C102.702735,117.105985 89.2960067,127.477928 67.2957536,143.141067 C67.0375871,143.324869 66.7075778,143.375419 66.4062308,143.277321 C65.8810714,143.106364 65.593933,142.542051 65.7648893,142.016892 L65.7648894,142.016892 L74.8479122,114.114821 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF"></path>
+                <g id="Group-2" transform="translate(28.000000, 47.000000)" fill="url(#linearGradient-1)">
+                    <circle id="Oval-2" cx="12.5" cy="12.5" r="12.5"></circle>
+                    <circle id="Oval-2" cx="51.5" cy="12.5" r="12.5"></circle>
+                    <circle id="Oval-2" cx="90.5" cy="12.5" r="12.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
