@@ -26,7 +26,7 @@ const Messages = (props) => (<div className={style['item--overflow']}>
 		)
 	})}
 </div>)
-const distance=document.body.offsetHeight-50-48;
+const distance=(typeof document !== "undefined")?(document.body.offsetHeight-50-48):0;
 const limit=Math.floor(distance/63)*3;
 export default class List extends Component {
   constructor() {

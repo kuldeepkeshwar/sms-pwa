@@ -9,18 +9,24 @@ import path from 'path';
  **/
 export default function (config, env, helpers) {
     /** you can change config here **/
+    
   const plugins = config.plugins.filter((plugin) => {
     return plugin.constructor.name !== 'SWPrecacheWebpackPlugin';
   });
-  let { plugin: htmlWebpackPlugin } = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0];
-  htmlWebpackPlugin.options.template = `!!ejs-loader!${path.resolve(__dirname, 'src/index.html')}`;
+
+  let htmlWebpackPlugin = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0];
+  if(htmlWebpackPlugin){
+    htmlWebpackPlugin.plugin.options.template = `!!ejs-loader!${path.resolve(__dirname, 'src/index.html')}`;
+  }
   
-  config.devServer.proxy = [
-    {
-      path: '/api/**',
-      target: 'http://localhost:3000',
-    },
-  ];
+  if(config.devServer){
+    config.devServer.proxy = [
+      {
+        path: '/api/**',
+        target: 'http://localhost:3000',
+      },
+    ];  
+  }
   config.plugins = plugins;
   return config;
 }
