@@ -1,0 +1,74 @@
+version: '2'
+
+services:
+  nginx:
+    image: ehekatl/docker-nginx-http2
+    container_name : nginx
+    restart: on-failure:2
+    ports:
+        - "80:80"
+        - "443:443"
+    links :
+      - api
+      - static
+    volumes:
+      - ./tools/nginx/nginx.conf:/etc/nginx/nginx.conf
+  init:
+    build: ./tools/docker/
+    container_name : init
+    command: npm install
+    volumes:
+      - .:/code
+      - build:/code/build
+      - node_modules:/code/node_modules
+  api:
+    container_name : api
+    restart: on-failure:2
+    depends_on:
+      # - mysql
+      - init
+    build: ./tools/docker/
+    command: npm run server-serve
+    env_file: ./tools/docker/.env
+    # links :
+    #   - mysql
+    expose:
+      - 3000
+    volumes:
+      - .:/code
+      - ./../.git:/code/.git
+      - build:/code/build
+      - node_modules:/code/node_modules
+  static:
+    container_name : static
+    restart: on-failure:2
+    depends_on:
+      # - mysql
+      - init
+    build: ./tools/docker/
+    command: npm run client-serve
+    env_file: ./tools/docker/.env
+    # links :
+    #   - mysql
+    expose:
+      - 8080
+    volumes:
+      - .:/code
+      - ./../.git:/code/.git
+      - build:/code/build
+      - node_modules:/code/node_modules
+  # mysql:
+  #    image: mysql
+  #    container_name : mysql
+  #    restart: always
+  #    volumes:
+  #     - sql-volume:/var/lib/mysql
+  #    expose:
+  #     - 3306
+  #    env_file: ./tools/docker/.env
+  
+
+volumes:
+  node_modules:
+  build:
+  # sql-volume:

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const dist = './../build/';
+const dist = './../build/server';
 
 module.exports = {
   // devtool:'source-map',

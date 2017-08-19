@@ -58,3 +58,6 @@ npm-debug.log
 
 # build
 build
+
+# temp files
+tmp-*
