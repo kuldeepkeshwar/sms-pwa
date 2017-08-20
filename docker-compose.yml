@@ -13,6 +13,7 @@ services:
       - static
     volumes:
       - ./tools/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./tools/nginx/ssl:/etc/nginx/ssl
   init:
     build: ./tools/docker/
     container_name : init
