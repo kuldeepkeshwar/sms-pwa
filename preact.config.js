@@ -18,15 +18,6 @@ export default function (config, env, helpers) {
   if(htmlWebpackPlugin){
     htmlWebpackPlugin.plugin.options.template = `!!ejs-loader!${path.resolve(__dirname, 'src/index.html')}`;
   }
-  
-  if(config.devServer){
-    config.devServer.proxy = [
-      {
-        path: '/api/**',
-        target: 'http://localhost:3000',
-      },
-    ];  
-  }
   config.plugins = plugins;
   return config;
 }
