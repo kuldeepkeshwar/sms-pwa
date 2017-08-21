@@ -15,7 +15,7 @@ for(let i=1;i<=25;i++){
   messageThread.messages.push({
     id: 100+i,
     time: '10/10/2017',
-    detail: 'Hi, Mr. X'+i,
+    detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed enim placerat, tincidunt enim eu, suscipit sem. Cras dictum, nisi et cursus consequat, augue sapien tristique mi, sed ultrices arcu neque in sapien.'+i,
   })
 }
 router.get('/messages/', (req, res) => {

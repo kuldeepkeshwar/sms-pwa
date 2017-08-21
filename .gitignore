@@ -51,7 +51,7 @@ crashlytics-build.properties
 node_modules
 
 # npm debug log
-npm-debug.log
+npm-debug*.log
 
 # vs code
 .vscode

@@ -15,8 +15,8 @@
     "server-build": "webpack -p --config server/webpack.config.js",
     "server-dev": "webpack --watch --config server/webpack.config.js",
     "server-start": "npm run server-dev & npm run server-serve:dev",
-    "server-serve": "webpack -p --config server/webpack.config.js && node build/server/server.js",
-    "server-serve:dev": "nodemon build/server/server.js"
+    "server-serve": "webpack -p --config server/webpack.config.js && node build/api/index.js",
+    "server-serve:dev": "nodemon build/api/index.js"
   },
   "keywords": [],
   "author": "Kuldeep Keshwar",

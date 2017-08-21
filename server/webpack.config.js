@@ -1,6 +1,6 @@
 const path = require('path');
 
-const dist = './../build/server';
+const dist = './../build/api';
 
 module.exports = {
   // devtool:'source-map',
@@ -8,7 +8,7 @@ module.exports = {
   entry: './server/app.js',
   output: {
     path: path.join(__dirname, dist),
-    filename: 'server.js',
+    filename: 'index.js',
   },
   module: {
     loaders: [

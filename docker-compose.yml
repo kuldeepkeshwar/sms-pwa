@@ -3,7 +3,7 @@ version: '2'
 services:
   nginx:
     image: ehekatl/docker-nginx-http2
-    container_name : nginx
+    container_name : sms-nginx
     restart: on-failure:2
     ports:
         - "80:80"
@@ -16,20 +16,20 @@ services:
       - ./tools/nginx/ssl:/etc/nginx/ssl
   init:
     build: ./tools/docker/
-    container_name : init
+    container_name : sms-init
     command: npm install
     volumes:
       - .:/code
       - build:/code/build
       - node_modules:/code/node_modules
   api:
-    container_name : api
+    container_name : sms-api
     restart: on-failure:2
     depends_on:
       # - mysql
       - init
     build: ./tools/docker/
-    command: npm run server-serve
+    command: npm run server-start
     env_file: ./tools/docker/.env
     # links :
     #   - mysql
@@ -41,13 +41,13 @@ services:
       - build:/code/build
       - node_modules:/code/node_modules
   static:
-    container_name : static
+    container_name : sms-static
     restart: on-failure:2
     depends_on:
       # - mysql
       - init
     build: ./tools/docker/
-    command: npm run client-serve
+    command: npm run client-start
     env_file: ./tools/docker/.env
     # links :
     #   - mysql
