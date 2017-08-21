@@ -2,7 +2,10 @@
     "verbose": true,
     "legacyWatch": true,
     "watch": [
-      "dist/server.js"
+      "build/api/index.js"
     ],
-    "ignore": ["**/LICENSE","**/*.config.js","**/*.json","**/*.log*","**/*.md","**/.*","**/server/*","**/src/*","**/node_modules/*", "**/.git/*"]
+    "ignore": [
+      "**/LICENSE","**/*.config.js","**/*.json","**/build/static/*",
+      "**/*.log*","**/*.md","**/.*","**/server/*",
+      "**/src/*","**/node_modules/*", "**/.git/*"]
   }
