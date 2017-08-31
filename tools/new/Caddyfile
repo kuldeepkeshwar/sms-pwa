@@ -1,0 +1,16 @@
+localhost:443
+tls ./tools/nginx/ssl/node.dev.crt ./tools/nginx/ssl/node.dev.key
+## localhost:2015
+gzip
+push / {
+    /style.817fc.css
+    /bundle.80793.js
+}
+log ./build/access.log
+rewrite /api/ {
+    to /proxy/{uri}
+}
+proxy /proxy localhost:3000/ {
+    without /proxy
+}
+root ./build/static/
